@@ -1,5 +1,5 @@
-CREATE DATABASE bartender;
-\c bartender
+CREATE DATABASE bartender_db;
+\c bartender_db
 
 CREATE TABLE recipes(
   id SERIAL PRIMARY KEY,
