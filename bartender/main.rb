@@ -2,9 +2,12 @@ require 'sinatra'
 require 'httparty'
 require 'pg'
 require './db/db'
+require 'dotenv/load'
 
 get '/' do
-  data = HTTParty.get('http://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita').parsed_response
+  data = HTTParty.get("http://www.thecocktaildb.com/api/json/v1/#{ENV['API_KEY']}/search.php?s=margarita").parsed_response
+
+  #{ENV['API_KEY']}
 
   # Generate sample recipe
   first_drink = data['drinks'][0]
