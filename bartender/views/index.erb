@@ -37,7 +37,7 @@
           </div>
           <div class="author-details">
             <p class="author">Posted by User</p>
-            <p class="date-created"></p>
+            <p class="date-posted">Date posted: December 13, 2022</p>
           </div>
         </div>
 
@@ -56,14 +56,18 @@
                 <% end %>
               <% end %>
             </ul>
-            <div class="ingredients-amt">
-              <p>Ingredients</p>
+
+            <ul>
               <% ingredients_amt.each_value do |amount| %>
                 <% if amount %>
                   <li><%= amount %></li>
                 <% end %>
               <% end %>
-            </div>
+            </ul>
+          </div>
+
+          <div class="instructions">
+            <%= recipe['instructions'] %>
           </div>
         </div>
 

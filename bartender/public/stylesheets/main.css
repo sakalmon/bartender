@@ -81,3 +81,7 @@ nav li {
   width: 100px;
   border-radius: 10px;
 }
+
+.ingredients {
+  display: flex;
+}
