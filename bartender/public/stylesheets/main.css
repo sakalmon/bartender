@@ -76,3 +76,8 @@ nav li {
   display: grid;
   grid-template-columns: 1fr 3fr;
 }
+
+.recipe-thumbnail img {
+  width: 100px;
+  border-radius: 10px;
+}

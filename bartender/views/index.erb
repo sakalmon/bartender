@@ -30,29 +30,49 @@
   </section>
 
   <section class="all-recipes">
-    <section class="recipe">
-      <div class="recipe-info">
-        <div class="recipe-thumbnail"></div>
-        <div class="author-details">
-          <p class="author">Posted by User</p>
-          <p class="date-created"></p>
+      <section class="recipe">
+        <div class="recipe-info">
+          <div class="recipe-thumbnail">
+            <img src="<%= recipe['image_url'] %>" alt="">
+          </div>
+          <div class="author-details">
+            <p class="author">Posted by User</p>
+            <p class="date-created"></p>
+          </div>
         </div>
-      </div>
 
-      <div class="recipe-details">
-        <div class="recipe-heading">
-          <div class="recipe-name"></div>
-          <div class="likes"></div>
+        <div class="recipe-details">
+          <div class="recipe-heading">
+            <div class="recipe-name">
+              <p><%= recipe['name'] %></p>
+            </div>
+            <div class="likes"></div>
+          </div>
+          <div class="ingredients">
+            <ul>
+              <% ingredients.each_value do |ingredient| %>
+                <% if ingredient %>
+                  <li><%= ingredient %></li>
+                <% end %>
+              <% end %>
+            </ul>
+            <div class="ingredients-amt">
+              <p>Ingredients</p>
+              <% ingredients_amt.each_value do |amount| %>
+                <% if amount %>
+                  <li><%= amount %></li>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         </div>
-        <div class="ingredients"></div>
-      </div>
 
-      <section class="recipe-controls">
-        <div><p>Like</p></div>
-        <div><p>Save</p></div>
-        <div><p>Add to shopping list</p></div>
+        <section class="recipe-controls">
+          <div><p>Like</p></div>
+          <div><p>Save</p></div>
+          <div><p>Add to shopping list</p></div>
+        </section>
       </section>
-    </section>
   </section>
 </main>
 <footer>
