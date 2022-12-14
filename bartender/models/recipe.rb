@@ -68,6 +68,10 @@ def search_recipe(query)
 
   drinks_data = data['drinks']
 
+  if !drinks_data
+    redirect '/'
+  end
+  
   drinks_data.each do |drink_data|
     ingredients = {}
     ingredients_amt = {}
