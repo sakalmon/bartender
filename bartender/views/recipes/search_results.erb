@@ -3,14 +3,9 @@
     <h2>Welcome back, <%= current_user['first_name'] %>!</h2>
   </section>
 <% end %>
-<section class=search-bar>
-  <form action="/recipes/search_results" class="search">
-    <input type="text" name="query" value="Search for a cocktail recipe...">
-  </form>
-</section>
 <main>
-  <section class="top-recipes">
-    <h1>Top Recipes</h1>
+  <section class="search-results">
+    <h1>Search Results</h1>
   </section>
 
   <section class="all-recipes">
@@ -22,8 +17,7 @@
               <img src="<%= recipe['image_url'] %>" alt="">
             </div>
             <div class="author-details">
-              <p class="author"><span>Posted by: </span> User</p>
-              <p class="date-posted"><span>Date posted:</span> December 13, 2022</p>
+              <p class="author"><span>Retrieved from: </span>TheCocktailDB API</p>
             </div>
             <% if logged_in? %>
               <div class="recipe-controls">

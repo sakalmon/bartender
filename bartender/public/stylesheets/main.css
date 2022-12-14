@@ -78,7 +78,7 @@ nav li {
   box-shadow: black 10px 10px 10px;
 }
 
-.top-recipes h1 {
+.top-recipes h1, .search-results h1 {
   width: fit-content;
   border: 1px solid black;
   border-radius: 10px;
@@ -97,12 +97,12 @@ nav li {
   box-shadow: black 10px 10px 10px;
 }
 
-.top-recipes {
+.top-recipes, .search-results {
   display: flex;
   justify-content: center;
 }
 
-.top-recipes h1 {
+.top-recipes h1, .search-results h1 {
   padding-left: 100px;
   padding-right: 100px;
 }
