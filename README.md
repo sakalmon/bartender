@@ -1,5 +1,6 @@
 # Bartender
 A web app that allows users to search for cocktail recipes as well as post their own.
+## [Try out Bartender](https://bartender.fly.dev/)
 ## Plan
 ### Tasks
 ![Tasks](https://github.com/sakalmon/bartender/blob/main/Tasks.png)
