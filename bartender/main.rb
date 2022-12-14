@@ -226,3 +226,10 @@ put '/recipes/:id' do
 
   redirect '/'
 end
+
+delete '/recipes/:id' do
+  id = params['id']
+  delete_recipe(id)
+
+  redirect '/'
+end
