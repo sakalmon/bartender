@@ -7,6 +7,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <header>
+    <section class="title-bar">
+      <div class="logo">
+        <img src="../logo/bartender-logo.png" alt="logo">
+      </div>
+      <div class="title">
+        <h1>Bartender</h1>
+      </div>
+    </section>
+
+    <nav>
+      <div class=app-nav>
+        <a href="/">Home</a>
+        <% if logged_in? %>
+          <a href="/recipes/new">Create Recipe</a>
+          <a href="#">Saved Recipes</a>
+        <% end %>
+      </div>
+
+      <div class="user-nav">
+        <% if logged_in? %>
+          <form action="/sessions" method="POST">
+            <input type="hidden" name="_method" value="delete">
+            <button class="logout-btn">Log Out</button>
+          </form>
+          <a href="#">Account</a>
+        <% else %>
+          <a href="/sessions/new">Log In</a>
+          <a href="/users/new">Sign Up</a>
+        <% end %>
+      </div>
+    </nav>
+  </header>
 
   <%= yield %>
 

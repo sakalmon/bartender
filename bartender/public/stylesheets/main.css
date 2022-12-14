@@ -133,9 +133,10 @@ nav li {
 
 label {
   display: block;
+  padding-top: 20px;
 }
 
-.edit-update-btn, .signup-btn, .login-btn {
+.edit-update-btn, .signup-btn, .login-btn, .create-btn {
   display: block;
 }
 
@@ -188,3 +189,24 @@ label {
   color: white;
   text-shadow: black 3px 3px 3px;
 }
+
+.login, .signup, .create-recipe {
+  color: white;
+}
+
+main.login, main.signup, main.create-recipe {
+  margin-left: 30px;
+}
+
+.login-btn, .signup-btn, .create-btn {
+  margin-top: 10px;
+  background-color: white;
+  border: none;
+  padding: 10px 20px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
