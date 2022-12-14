@@ -97,10 +97,18 @@ get '/' do
 end
 
 get '/recipes/new' do
+  if !logged_in?
+    redirect '/'
+  end
+
   erb :'recipes/new'
 end
 
 post '/recipes' do
+  if !logged_in?
+    redirect '/'
+  end
+
   name = params['name']
   ingredient_1 = params['ingredient-1']
   ingredient_2 = params['ingredient-2']
@@ -144,6 +152,10 @@ post '/recipes' do
 end
 
 get '/recipes/:id/edit' do
+  if !logged_in?
+    redirect '/'
+  end
+
   id = params['id']
 
   recipe = get_recipe(id)
@@ -192,6 +204,10 @@ get '/recipes/:id/edit' do
 end
 
 put '/recipes/:id' do
+  if !logged_in?
+    redirect '/'
+  end
+
   id = params['id']
   name = params['name']
   ingredient_1 = params['ingredient-1']
@@ -233,6 +249,10 @@ put '/recipes/:id' do
 end
 
 delete '/recipes/:id' do
+  if !logged_in?
+    redirect '/'
+  end
+
   id = params['id']
   delete_recipe(id)
 

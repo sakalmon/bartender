@@ -11,8 +11,10 @@
   <nav>
     <div class=app-nav>
       <a href="#">Home</a>
-      <a href="/recipes/new">Create Recipe</a>
-      <a href="#">Saved Recipes</a>
+      <% if logged_in? %>
+        <a href="/recipes/new">Create Recipe</a>
+        <a href="#">Saved Recipes</a>
+      <% end %>
     </div>
 
     <div class="user-nav">
@@ -28,10 +30,12 @@
       <% end %>
     </div>
   </nav>
-  <% if logged_in? %>
-    <h2 class="welcome-msg">Welcome back, <%= current_user['first_name'] %>!</h2>
-  <% end %>
 </header>
+  <% if logged_in? %>
+    <section class="welcome-message">
+      <h2>Welcome back, <%= current_user['first_name'] %>!</h2>
+    </section>
+  <% end %>
 <section class=search-bar>
   <input type="text" value="Search for a cocktail recipe...">
 </section>
@@ -49,16 +53,18 @@
               <img src="<%= recipe['image_url'] %>" alt="">
             </div>
             <div class="author-details">
-              <p class="author">Posted by User</p>
-              <p class="date-posted">Date posted: December 13, 2022</p>
+              <p class="author"><span>Posted by: </span> User</p>
+              <p class="date-posted"><span>Date posted:</span> December 13, 2022</p>
             </div>
-            <div class="recipe-controls">
-              <a href="/recipes/<%= recipe['id'] %>/edit">Edit</a>
-              <form action="/recipes/<%= recipe['id'] %>" method="POST">
-                <input type="hidden" name="_method" value="delete">
-                <button>Delete</button>
-              </form>
-            </div>
+            <% if logged_in? %>
+              <div class="recipe-controls">
+                <a href="/recipes/<%= recipe['id'] %>/edit" class="edit-btn">Edit</a>
+                <form action="/recipes/<%= recipe['id'] %>" method="POST">
+                  <input type="hidden" name="_method" value="delete">
+                  <button class="delete-btn">Delete</button>
+                </form>
+              </div>
+            <% end %>
           </div>
 
           <div class="recipe-details">
