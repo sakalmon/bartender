@@ -30,53 +30,42 @@
   </section>
 
   <section class="all-recipes">
-      <section class="recipe">
-        <div class="recipe-info">
-          <div class="recipe-thumbnail">
-            <img src="<%= recipe['image_url'] %>" alt="">
-          </div>
-          <div class="author-details">
-            <p class="author">Posted by User</p>
-            <p class="date-posted">Date posted: December 13, 2022</p>
-          </div>
-        </div>
-
-        <div class="recipe-details">
-          <div class="recipe-heading">
-            <div class="recipe-name">
-              <p><%= recipe['name'] %></p>
+  <%= recipes.length %>
+    <% recipes.each do |recipe| %>
+      <% if recipe %>
+        <section class="recipe">
+          <div class="recipe-info">
+            <div class="recipe-thumbnail">
+              <img src="<%= recipe['image_url'] %>" alt="">
             </div>
-            <div class="likes"></div>
-          </div>
-          <div class="ingredients">
-            <ul>
-              <% ingredients.each_value do |ingredient| %>
-                <% if ingredient %>
-                  <li><%= ingredient %></li>
-                <% end %>
-              <% end %>
-            </ul>
-
-            <ul>
-              <% ingredients_amt.each_value do |amount| %>
-                <% if amount %>
-                  <li><%= amount %></li>
-                <% end %>
-              <% end %>
-            </ul>
+            <div class="author-details">
+              <p class="author">Posted by User</p>
+              <p class="date-posted">Date posted: December 13, 2022</p>
+            </div>
           </div>
 
-          <div class="instructions">
-            <%= recipe['instructions'] %>
-          </div>
-        </div>
+          <div class="recipe-details">
+            <div class="recipe-heading">
+              <div class="recipe-name">
+                <p><%= recipe['name'] %></p>
+              </div>
+              <div class="likes"></div>
+            </div>
+            <div class="ingredients">
+            </div>
 
-        <section class="recipe-controls">
-          <div><p>Like</p></div>
-          <div><p>Save</p></div>
-          <div><p>Add to shopping list</p></div>
+            <div class="instructions">
+            </div>
+          </div>
+
+          <section class="recipe-controls">
+            <div><p>Like</p></div>
+            <div><p>Save</p></div>
+            <div><p>Add to shopping list</p></div>
+          </section>
         </section>
-      </section>
+      <% end %>
+    <% end %>
   </section>
 </main>
 <footer>
