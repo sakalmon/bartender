@@ -5,6 +5,10 @@ require './db/db'
 require 'dotenv/load'
 require 'json'
 require './models/recipe'
+require './models/users'
+require 'bcrypt'
+
+enable :sessions
 
 get '/' do
   # data = HTTParty.get("http://www.thecocktaildb.com/api/json/v1/#{ENV['API_KEY']}/search.php?s=margarita").parsed_response
@@ -230,6 +234,21 @@ end
 delete '/recipes/:id' do
   id = params['id']
   delete_recipe(id)
+
+  redirect '/'
+end
+
+get '/users/new' do
+  erb :'users/new'
+end
+
+post '/users' do
+  first_name = params['first-name']
+  last_name = params['last-name']
+  email = params['email']
+  password = params['password']
+
+  new_user(first_name, last_name, email, password)
 
   redirect '/'
 end

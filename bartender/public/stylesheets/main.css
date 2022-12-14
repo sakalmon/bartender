@@ -99,6 +99,6 @@ label {
   display: block;
 }
 
-.edit-update-btn {
+.edit-update-btn, .signup-btn {
   display: block;
 }
