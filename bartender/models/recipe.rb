@@ -48,3 +48,11 @@ end
 def new_recipe(name, instructions, ingredients, amounts, image_url)
   run_sql("INSERT INTO recipes(name, instructions, ingredients, ingredients_amt, image_url) VALUES ($1, $2, $3, $4, $5)", [name, instructions, ingredients, amounts, image_url])
 end
+
+def get_recipe(id)
+  run_sql("SELECT * FROM recipes WHERE id = $1", [id])[0]
+end
+
+def update_recipe(id, name, ingredients_json, amts_json, instructions, image_url)
+  run_sql("UPDATE recipes SET name = $2, ingredients = $3, ingredients_amt = $4, instructions = $5, image_url = $6 WHERE id = $1" , [id, name, ingredients_json, amts_json, instructions, image_url])
+end
