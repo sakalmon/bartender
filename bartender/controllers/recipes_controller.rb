@@ -150,7 +150,7 @@ put '/recipes/:id' do
 
   instructions = params['instructions']
   
-  image_url = params['image_url']
+  image_url = params['image-url']
 
   ingredients = {
     'ingredient_1' => ingredient_1,
