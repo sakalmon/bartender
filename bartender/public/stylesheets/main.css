@@ -203,3 +203,12 @@ main.login, main.signup, main.create-recipe {
   justify-content: center;
 }
 
+.copyright {
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+.recipe-name {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
