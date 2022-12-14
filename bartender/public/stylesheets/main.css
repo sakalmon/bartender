@@ -210,3 +210,12 @@ main.login, main.signup, main.create-recipe {
   justify-content: center;
 }
 
+.like-save {
+  display: flex;
+  justify-content: center;
+}
+
+.add-to-sl a {
+  display: block;
+}
+
