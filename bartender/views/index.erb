@@ -16,7 +16,7 @@
     </div>
 
     <div class="user-nav">
-      <% if session['user_id'] %>
+      <% if logged_in? %>
         <form action="/sessions" method="POST">
           <input type="hidden" name="_method" value="delete">
           <button class="logout-btn">Log Out</button>
@@ -28,6 +28,9 @@
       <% end %>
     </div>
   </nav>
+  <% if logged_in? %>
+    <h2 class="welcome-msg">Welcome back, <%= current_user['first_name'] %>!</h2>
+  <% end %>
 </header>
 <section class=search-bar>
   <input type="text" value="Search for a cocktail recipe...">

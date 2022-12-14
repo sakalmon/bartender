@@ -7,6 +7,7 @@ require 'json'
 require './models/recipe'
 require './models/users'
 require 'bcrypt'
+require './helpers/sessions_helper'
 
 enable :sessions
 
@@ -267,6 +268,8 @@ post '/sessions' do
     session['user_id'] = user['id']
 
     redirect '/'
+  else
+    redirect '/sessions/new'
   end
 end
 
