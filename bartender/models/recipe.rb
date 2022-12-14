@@ -1,20 +1,5 @@
 def all_recipes
-  results = run_sql("SELECT * FROM recipes")
-
-  # results.each do |result|
-    
-  # end
-
-  # recipes.push {
-  #   "name" => results[0]['name'],
-  #   "instructions" => results[0]['instructions'],
-  #   "ingredients" => results[0]['ingredients'],
-  #   "ingredients_amt" => results[0]['ingredients_amt'],
-  #   "image_url" => results[0]['image_url']
-  # }
-
-  # ingredients = JSON.parse recipe['ingredients']
-  # ingredients_amt = JSON.parse recipe['ingredients_amt']
+  run_sql("SELECT * FROM recipes ORDER BY id")
 end
 
 def generate_data
@@ -58,4 +43,8 @@ def generate_data
   drinks.each do |drink|
     run_sql("INSERT INTO recipes(name, instructions, ingredients, ingredients_amt, image_url) VALUES ($1, $2, $3, $4, $5)", [drink['name'], drink['instructions'], drink['ingredients'], drink['ingredients_amt'], drink['image_url']])
   end
+end
+
+def new_recipe(name, instructions, ingredients, amounts, image_url)
+  run_sql("INSERT INTO recipes(name, instructions, ingredients, ingredients_amt, image_url) VALUES ($1, $2, $3, $4, $5)", [name, instructions, ingredients, amounts, image_url])
 end

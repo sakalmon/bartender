@@ -118,6 +118,8 @@ post '/recipes' do
     'ingredient_5' => ingredient_5
   }
 
+  ingredients_json = JSON.generate(ingredients)
+
   amts = {
     'amt_1' => amt_1,
     'amt_2' => amt_2,
@@ -126,10 +128,12 @@ post '/recipes' do
     'amt_5' => amt_5
   }
 
+  amts_json = JSON.generate(amts)
+
   run_sql("INSERT INTO recipes(name, instructions,
     ingredients,
     ingredients_amt,
-    image_url) VALUES ($1, $2, $3, $4, $5)", [name, instructions, ingredients, amts, image_url])
+    image_url) VALUES ($1, $2, $3, $4, $5)", [name, instructions, ingredients_json, amts_json, image_url])
 
   redirect '/'
 end
