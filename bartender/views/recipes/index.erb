@@ -45,14 +45,14 @@
               <div class="ingredient-names">
                 <% recipe['ingredients'].each_value do |ingredient| %>
                   <% if ingredient %>
-                    <li><%= ingredient %></li>
+                    <p><%= ingredient %></p>
                   <% end %>
                 <% end %>              
               </div>
               <div class="ingredients-amt">
                 <% recipe['ingredients_amt'].each_value do |amount| %>
                   <% if amount %>
-                    <li><%= amount %></li>
+                    <p><%= amount %></p>
                   <% end %>
                 <% end %>              
               </div>

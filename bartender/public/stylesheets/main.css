@@ -183,15 +183,15 @@ label {
   text-shadow: black 3px 3px 3px;
 }
 
-.login, .signup, .create-recipe {
+.login, .signup, .create-recipe, .edit-recipe {
   color: white;
 }
 
-main.login, main.signup, main.create-recipe {
+main.login, main.signup, main.create-recipe, main.edit-recipe {
   margin-left: 30px;
 }
 
-.login-btn, .signup-btn, .create-btn {
+.login-btn, .signup-btn, .create-btn, .edit-update-btn {
   margin-top: 10px;
   background-color: white;
   border: none;

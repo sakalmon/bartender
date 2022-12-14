@@ -1,32 +1,36 @@
-<h1>Edit Recipe</h1>
-<form action="/recipes/<%= recipe['id'] %>" method="POST">
-  <input type="hidden" name="_method" value="put">
-  <label>Recipe Name: </label>
-  <input type="text" name="name" value="<%= recipe['name'] %>">
-  <label>Ingredient 1: </label>
-  <input type="text" name="ingredient-1" value="<%= ingredient_1 %>">
-  <label>Amount: </label>
-  <input type="text" name="amt-1" value="<%= amt_1 %>">
-  <label>Ingredient 2: </label>
-  <input type="text" name="ingredient-2" value="<%= ingredient_2 %>">
-  <label>Amount: </label>
-  <input type="text" name="amt-2" value="<%= amt_2 %>">
-  <label>Ingredient 3: </label>
-  <input type="text" name="ingredient-3" value="<%= ingredient_3 %>">
-  <label>Amount: </label>
-  <input type="text" name="amt-3" value="<%= amt_3 %>">
-  <label>Ingredient 4: </label>
-  <input type="text" name="ingredient-4" value="<%= ingredient_4 %>">
-  <label>Amount: </label>
-  <input type="text" name="amt-4" value="<%= amt_4 %>">
-  <label>Ingredient 5: </label>
-  <input type="text" name="ingredient-5" value="<%= ingredient_5 %>">
-  <label>Amount: </label>
-  <input type="text" name="amt-5" value="<%= amt_5 %>">
-  <label>Instructions: </label>
-  <input type="text" name="instructions" value="<%= recipe['instructions'] %>">
-  <label>Image URL: </label>
-  <input type="text" name="image-url" value="<%= recipe['image_url'] %>">
+<main class="edit-recipe">
+  <h1>Edit Recipe</h1>
+  <section class="form">
+    <form action="/recipes/<%= recipe['id'] %>" method="POST">
+      <input type="hidden" name="_method" value="put">
+      <label>Recipe Name: </label>
+      <input type="text" name="name" value="<%= recipe['name'] %>">
+      <label>Ingredient 1: </label>
+      <input type="text" name="ingredient-1" value="<%= ingredient_1 %>">
+      <label>Amount: </label>
+      <input type="text" name="amt-1" value="<%= amt_1 %>">
+      <label>Ingredient 2: </label>
+      <input type="text" name="ingredient-2" value="<%= ingredient_2 %>">
+      <label>Amount: </label>
+      <input type="text" name="amt-2" value="<%= amt_2 %>">
+      <label>Ingredient 3: </label>
+      <input type="text" name="ingredient-3" value="<%= ingredient_3 %>">
+      <label>Amount: </label>
+      <input type="text" name="amt-3" value="<%= amt_3 %>">
+      <label>Ingredient 4: </label>
+      <input type="text" name="ingredient-4" value="<%= ingredient_4 %>">
+      <label>Amount: </label>
+      <input type="text" name="amt-4" value="<%= amt_4 %>">
+      <label>Ingredient 5: </label>
+      <input type="text" name="ingredient-5" value="<%= ingredient_5 %>">
+      <label>Amount: </label>
+      <input type="text" name="amt-5" value="<%= amt_5 %>">
+      <label>Instructions: </label>
+      <input type="text" name="instructions" value="<%= recipe['instructions'] %>">
+      <label>Image URL: </label>
+      <input type="text" name="image-url" value="<%= recipe['image_url'] %>">
 
-  <button class="edit-update-btn">Update</button>
-</form>
+      <button class="edit-update-btn">Update</button>
+    </form>
+  </section>
+</main>
