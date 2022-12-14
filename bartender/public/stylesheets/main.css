@@ -102,3 +102,12 @@ label {
 .edit-update-btn, .signup-btn, .login-btn {
   display: block;
 }
+
+.logout-btn {
+  border: none;
+  background-color: lightgreen;
+}
+
+.logout-btn:hover {
+  cursor: pointer;
+}

@@ -269,3 +269,9 @@ post '/sessions' do
     redirect '/'
   end
 end
+
+delete '/sessions' do
+  session['user_id'] = nil
+
+  redirect '/'
+end

@@ -17,7 +17,10 @@
 
     <div class="user-nav">
       <% if session['user_id'] %>
-        <a href="#">Log Out</a>
+        <form action="/sessions" method="POST">
+          <input type="hidden" name="_method" value="delete">
+          <button class="logout-btn">Log Out</button>
+        </form>
         <a href="#">Account</a>
       <% else %>
         <a href="/sessions/new">Log In</a>
