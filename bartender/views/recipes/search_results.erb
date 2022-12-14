@@ -7,7 +7,6 @@
   <section class="search-results">
     <h1>Search Results</h1>
   </section>
-
   <section class="all-recipes">
     <% recipes.each do |recipe| %>
       <% if recipe %>
@@ -29,7 +28,6 @@
               </div>
             <% end %>
           </div>
-
           <div class="recipe-details">
             <div class="recipe-heading">
               <div class="recipe-name">
@@ -45,7 +43,6 @@
                   <% end %>
                 <% end %>              
               </div>
-
               <div class="ingredients-amt">
                 <% recipe['ingredients_amt'].each_value do |amount| %>
                   <% if amount %>
@@ -54,12 +51,10 @@
                 <% end %>              
               </div>
             </div>
-
             <div class="instructions">
               <%= recipe['instructions'] %>
             </div>
           </div>
-
           <section class="recipe-controls">
             <p>Like</p>
             <p>Save</p>
