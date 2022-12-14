@@ -12,14 +12,7 @@ require './helpers/sessions_helper'
 enable :sessions
 
 get '/' do
-  # data = HTTParty.get("http://www.thecocktaildb.com/api/json/v1/#{ENV['API_KEY']}/search.php?s=margarita").parsed_response
-
   recipes = all_recipes()
-  p recipes
-
-  # Generate sample data
-  # generate_data()
-
   parsed_recipes = []
 
   recipes.each do |recipe|
@@ -53,17 +46,21 @@ post '/recipes' do
   end
 
   name = params['name']
+
   ingredient_1 = params['ingredient-1']
   ingredient_2 = params['ingredient-2']
   ingredient_3 = params['ingredient-3']
   ingredient_4 = params['ingredient-4']
   ingredient_5 = params['ingredient-5']
+
   amt_1 = params['amt-1']
   amt_2 = params['amt-2']
   amt_3 = params['amt-3']
   amt_4 = params['amt-4']
   amt_5 = params['amt-5']
+
   instructions = params['instructions']
+
   image_url = params['image-url']
 
   ingredients = {
@@ -100,8 +97,8 @@ get '/recipes/:id/edit' do
   end
 
   id = params['id']
-
   recipe = get_recipe(id)
+
   ingredients = JSON.parse recipe['ingredients']
   amts = JSON.parse recipe['ingredients_amt']  
 
@@ -129,8 +126,6 @@ get '/recipes/:id/edit' do
     amt_5 = amts['strMeasure5']
   end
 
-
-
   erb :'recipes/edit', locals: {
     recipe: recipe,
     ingredient_1: ingredient_1,
@@ -153,17 +148,21 @@ put '/recipes/:id' do
 
   id = params['id']
   name = params['name']
+
   ingredient_1 = params['ingredient-1']
   ingredient_2 = params['ingredient-2']
   ingredient_3 = params['ingredient-3']
   ingredient_4 = params['ingredient-4']
   ingredient_5 = params['ingredient-5']
+
   amt_1 = params['amt-1']
   amt_2 = params['amt-2']
   amt_3 = params['amt-3']
   amt_4 = params['amt-4']
   amt_5 = params['amt-5']
+
   instructions = params['instructions']
+  
   image_url = params['image_url']
 
   ingredients = {
