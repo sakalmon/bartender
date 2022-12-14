@@ -84,4 +84,13 @@ nav li {
 
 .ingredients {
   display: flex;
+  gap: 30px;
+}
+
+.ingredients-amt {
+  list-style: none;
+}
+
+.instructions {
+  margin-top: 20px;
 }

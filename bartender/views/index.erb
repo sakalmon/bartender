@@ -30,7 +30,6 @@
   </section>
 
   <section class="all-recipes">
-  <%= recipes.length %>
     <% recipes.each do |recipe| %>
       <% if recipe %>
         <section class="recipe">
@@ -52,9 +51,25 @@
               <div class="likes"></div>
             </div>
             <div class="ingredients">
+              <div class="ingredient-names">
+                <% recipe['ingredients'].each_value do |ingredient| %>
+                  <% if ingredient %>
+                    <li><%= ingredient %></li>
+                  <% end %>
+                <% end %>              
+              </div>
+
+              <div class="ingredients-amt">
+                <% recipe['ingredients_amt'].each_value do |amount| %>
+                  <% if amount %>
+                    <li><%= amount %></li>
+                  <% end %>
+                <% end %>              
+              </div>
             </div>
 
             <div class="instructions">
+              <%= recipe['instructions'] %>
             </div>
           </div>
 
