@@ -50,3 +50,9 @@ CREATE TABLE saved_recipes(
   user_id INTEGER,
   recipe_id INTEGER
 );
+
+CREATE TABLE shopping_lists(
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER,
+  shopping_list JSON
+);
