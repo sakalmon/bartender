@@ -62,3 +62,4 @@ The app is required to be hosted on the internet.
 * Un-like a recipe
 * Un-save a recipe
 * Account page for updating user details (email, password, etc.)
+* Share a recipe
