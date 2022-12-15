@@ -3,7 +3,7 @@ def all_recipes
 end
 
 def all_recipes_with_likes
-  run_sql("SELECT * FROM recipes LEFT JOIN (SELECT recipe_id, COUNT(*) AS likes FROM likes GROUP BY recipe_id) AS likes_count ON recipes.id = likes_count.recipe_id")
+  run_sql("SELECT * FROM recipes LEFT JOIN (SELECT recipe_id, COUNT(*) AS likes FROM likes GROUP BY recipe_id) AS likes_count ON recipes.id = likes_count.recipe_id ORDER BY id")
 end
 
 def generate_data
@@ -63,6 +63,7 @@ end
 
 def delete_recipe(id)
   run_sql("DELETE FROM recipes WHERE id = $1", [id])
+  run_sql("DELETE FROM saved_recipes WHERE recipe_id = $1", [id])
 end
 
 def search_recipe(query)
@@ -156,18 +157,24 @@ def all_saved_recipes(user_id)
 
   p saved_recipe_ids
 
-  saved_recipe_json = run_sql("SELECT * FROM recipes LEFT JOIN (SELECT recipe_id, COUNT(*) AS likes FROM likes GROUP BY recipe_id) AS likes_count ON recipes.id = likes_count.recipe_id WHERE id = ($1)", [saved_recipe_ids[0]])
+  saved_recipes = []
 
-  saved_recipe = {}
-
-  saved_recipe_json[0].each_pair do |key, val|
-    if key == 'ingredients' || key == 'ingredients_amt'
-      saved_recipe[key] = JSON.parse(val)
-    else
-      saved_recipe[key] = val
+  saved_recipe_ids.each do |saved_recipe_id|
+    saved_recipe_json = run_sql("SELECT * FROM recipes LEFT JOIN (SELECT recipe_id, COUNT(*) AS likes FROM likes GROUP BY recipe_id) AS likes_count ON recipes.id = likes_count.recipe_id WHERE id = ($1)", [saved_recipe_id])
+  
+    saved_recipe = {}
+    p saved_recipe_json[0]
+    if saved_recipe_json[0]
+      saved_recipe_json[0].each_pair do |key, val|
+        if key == 'ingredients' || key == 'ingredients_amt'
+          saved_recipe[key] = JSON.parse(val)
+        else
+          saved_recipe[key] = val
+        end
+      end
     end
+    
+    saved_recipes.push saved_recipe
   end
-
-  p saved_recipe
-  [saved_recipe]
+  saved_recipes
 end
