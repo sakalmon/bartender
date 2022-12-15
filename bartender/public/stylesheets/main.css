@@ -158,7 +158,8 @@ label {
 .recipe-controls {
   display: flex;
   justify-content: center;
-  gap: 5px;
+  align-items: center;
+  gap: 10px;
   padding: 10px;
 }
 
@@ -243,4 +244,31 @@ main.login, main.signup, main.create-recipe, main.edit-recipe {
 
 .form {
   height: 900px;
+}
+
+.recipe-controls img {
+  width: 25px;
+}
+
+.like img, .save img, .add-to-sl img {
+  padding: 2px;
+}
+
+.like, .save, .add-to-sl {
+  border-radius: 50px;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
+}
+
+.like {
+  background-color: blue;
+}
+
+.save {
+  background-color: red;
+}
+
+.add-to-sl {
+  background-color: green;
 }
