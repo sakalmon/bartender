@@ -246,7 +246,7 @@ main.login, main.signup, main.create-recipe, main.edit-recipe {
   height: 900px;
 }
 
-.recipe-controls button {
+.recipe-controls :is(.like, .save, .add-to-sl) {
   width: 35px;
   height: 35px;
   background-size: cover;
