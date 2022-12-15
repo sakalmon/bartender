@@ -136,3 +136,11 @@ end
 def get_likes(recipe_id)
   run_sql("SELECT COUNT(*) FROM likes WHERE recipe_id = $1", [recipe_id])
 end
+
+def save_recipe(user_id, recipe_id)
+  result = run_sql("SELECT * FROM saved_recipes WHERE user_id = $1 AND recipe_id = $2", [user_id, recipe_id])
+
+  if result.count == 0
+    run_sql("INSERT INTO saved_recipes(user_id, recipe_id) VALUES ($1, $2)", [user_id, recipe_id])
+  end  
+end

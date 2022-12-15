@@ -212,3 +212,16 @@ post '/recipes/:id/like' do
 
   redirect '/'
 end
+
+post '/recipes/:id/save' do
+  if !logged_in?
+    redirect '/sessions/new'
+  end
+
+  user_id = session['user_id']
+  recipe_id = params['id']
+
+  save_recipe(user_id, recipe_id)
+  
+  redirect '/'
+end
