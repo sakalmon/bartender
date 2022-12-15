@@ -120,7 +120,7 @@ nav li {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.author-details {
+.author-details, .like-count {
   padding-left: 20px;
 }
 
@@ -180,7 +180,7 @@ label {
   border-radius: 5px;
 }
 
-.author-details span {
+.author-details span, .like-count span {
   font-weight: bold;
 }
 

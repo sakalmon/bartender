@@ -24,6 +24,9 @@
               <p class="author"><span>Posted by: </span> User</p>
               <p class="date-posted"><span>Date posted:</span> December 13, 2022</p>
             </div>
+            <div class="like-count">
+              <p><span class="likes">Likes: </span>10</p>
+            </div>
             <% if logged_in? %>
               <div class="recipe-controls">
                 <a href="/recipes/<%= recipe['id'] %>/edit" class="edit-btn">Edit</a>
