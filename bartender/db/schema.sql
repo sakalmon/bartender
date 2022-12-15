@@ -44,3 +44,9 @@ UNIQUE(user_id, recipe_id);
 
 ALTER TABLE recipes
 ADD COLUMN author_id INTEGER;
+
+CREATE TABLE saved_recipes(
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER,
+  recipe_id INTEGER
+);
