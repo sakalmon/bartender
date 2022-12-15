@@ -197,3 +197,16 @@ get '/recipes/search_results' do
     recipes: results
   }
 end
+
+post '/recipes/:id/like' do
+  if !logged_in?
+    redirect '/sessions/new'
+  end
+  
+  recipe_id = params['id']
+  user_id = session['user_id']
+
+  like_recipe(user_id, recipe_id)
+
+  redirect '/'
+end

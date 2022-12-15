@@ -62,15 +62,21 @@
             </div>
           </div>
           <section class="recipe-controls">
-            <div class="like">
-              <a href="#"><img src="/icons/like-icon.png" alt="like-icon"></a>
-            </div>
-            <div class="save">
+            <form action="/recipes/<%= recipe['id'] %>/like" method="POST">
+              <button class="like"></button>
+            </form>
+            <form action="/recipes/<%= recipe['id'] %>/save" method="POST">
+              <button class="save"></button>
+            </form>
+            <form action="/recipes/<%= recipe['id'] %>/add-to-sl" method="POST">
+              <button class="add-to-sl"></button>
+            </form>
+            <%# <div class="save">
               <a href="#"><img src="/icons/save-icon.png" alt="save-icon"></a>
             </div>
             <div class="add-to-sl">
               <a href="#"><img src="/icons/bag-icon.png" alt="bag-icon"></a>
-            </div>
+            </div> %>
           </section>
         </section>
       <% end %>

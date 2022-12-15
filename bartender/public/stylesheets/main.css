@@ -246,29 +246,28 @@ main.login, main.signup, main.create-recipe, main.edit-recipe {
   height: 900px;
 }
 
-.recipe-controls img {
-  width: 25px;
-}
-
-.like img, .save img, .add-to-sl img {
-  padding: 2px;
-}
-
-.like, .save, .add-to-sl {
-  border-radius: 50px;
-  padding: 5px;
+.recipe-controls button {
   width: 35px;
   height: 35px;
+  background-size: cover;
+  border: none;
+  border-radius: 35px;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  padding: 7px;
 }
 
 .like {
+  background-image: url('/icons/like-icon.png');
   background-color: blue;
 }
 
 .save {
+  background-image: url('/icons/save-icon.png');
   background-color: red;
 }
 
 .add-to-sl {
-  background-color: green;
+  background-image: url('/icons/bag-icon.png');
+  background-color: greenyellow;
 }

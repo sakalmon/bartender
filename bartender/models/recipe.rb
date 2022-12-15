@@ -120,3 +120,7 @@ def search_recipe(query)
   end
   parsed_recipes
 end
+
+def like_recipe(user_id, recipe_id)
+  run_sql("INSERT INTO likes(user_id, recipe_id) VALUES ($1, $2)", [user_id, recipe_id])
+end
