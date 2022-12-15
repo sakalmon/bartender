@@ -11,7 +11,7 @@ body {
   background-color: rgb(209, 209, 209);
   margin: 0;
   background-image: url('/images/wood-background.jpeg');
-  background-size: auto;
+  background-size: contain;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -214,6 +214,7 @@ main.login, main.signup, main.create-recipe, main.edit-recipe {
 .form {
   display: flex;
   justify-content: center;
+  background-size: cover;
 }
 
 .copyright {
@@ -238,4 +239,8 @@ main.login, main.signup, main.create-recipe, main.edit-recipe {
 
 .instructions {
   padding-right: 40px;
+}
+
+.form {
+  height: 900px;
 }
