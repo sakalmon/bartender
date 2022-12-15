@@ -1,0 +1,89 @@
+<% if logged_in? %>
+  <section class="welcome-message">
+    <h2>Welcome back, <%= current_user['first_name'] %>!</h2>
+  </section>
+<% end %>
+<section class=search-bar>
+  <form action="/recipes/search_results" class="search">
+    <input type="text" name="query" value="Search for a cocktail recipe...">
+  </form>
+</section>
+<main>
+  <section class="top-recipes">
+    <h1>Saved Recipes</h1>
+  </section>
+  <section class="all-recipes">
+    <% recipes.each do |recipe| %>
+      <% if recipe %>
+        <section class="recipe">
+          <div class="recipe-info">
+            <div class="recipe-thumbnail">
+              <img src="<%= recipe['image_url'] %>" alt="">
+            </div>
+            <div class="author-details">
+              <p class="author"><span>Posted by: </span> User</p>
+              <p class="date-posted"><span>Date posted:</span> December 13, 2022</p>
+            </div>
+            <% if recipe['likes'] %>
+              <div class="like-count">
+                <p><span class="likes">Likes: </span><%= recipe['likes'] %></p>
+              </div>
+            <% end %>
+            <% if logged_in? %>
+              <% if author?(recipe['author_id']) %>
+                <div class="recipe-controls">
+                  <a href="/recipes/<%= recipe['id'] %>/edit" class="edit-btn">Edit</a>
+                  <form action="/recipes/<%= recipe['id'] %>" method="POST">
+                    <input type="hidden" name="_method" value="delete">
+                    <button class="delete-btn">Delete</button>
+                  </form>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="recipe-details">
+            <div class="recipe-heading">
+              <div class="recipe-name">
+                <p><%= recipe['name'] %></p>
+              </div>
+              <div class="likes"></div>
+            </div>
+            <div class="ingredients">
+              <div class="ingredient-names">
+                <% recipe['ingredients'].each_value do |ingredient| %>
+                  <% if ingredient %>
+                    <p><%= ingredient %></p>
+                  <% end %>
+                <% end %>              
+              </div>
+              <div class="ingredients-amt">
+                <% recipe['ingredients_amt'].each_value do |amount| %>
+                  <% if amount %>
+                    <p><%= amount %></p>
+                  <% end %>
+                <% end %>              
+              </div>
+            </div>
+            <div class="instructions">
+              <%= recipe['instructions'] %>
+            </div>
+          </div>
+          <section class="recipe-controls">
+            <form action="/recipes/<%= recipe['id'] %>/like" method="POST">
+              <button class="like"></button>
+            </form>
+            <form action="/recipes/<%= recipe['id'] %>/save" method="POST">
+              <button class="save"></button>
+            </form>
+            <form action="/recipes/<%= recipe['id'] %>/add-to-sl" method="POST">
+              <button class="add-to-sl"></button>
+            </form>
+          </section>
+        </section>
+      <% end %>
+    <% end %>
+  </section>
+</main>
+<footer>
+  <p class="copyright">Copyright &copy; 2022 Sakal Mon</p>
+</footer>

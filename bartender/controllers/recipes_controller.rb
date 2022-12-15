@@ -222,6 +222,19 @@ post '/recipes/:id/save' do
   recipe_id = params['id']
 
   save_recipe(user_id, recipe_id)
-  
+
   redirect '/'
+end
+
+get '/recipes/saved_recipes' do
+  if !logged_in?
+    redirect '/sessions/new'
+  end
+
+  user_id = session['user_id']
+
+  recipes = all_saved_recipes(user_id)
+  erb :'recipes/saved_recipes', locals: {
+    recipes: recipes
+  }
 end

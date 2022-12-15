@@ -144,3 +144,30 @@ def save_recipe(user_id, recipe_id)
     run_sql("INSERT INTO saved_recipes(user_id, recipe_id) VALUES ($1, $2)", [user_id, recipe_id])
   end  
 end
+
+def all_saved_recipes(user_id)
+  results = run_sql("SELECT recipe_id FROM saved_recipes WHERE user_id = $1", [user_id])
+  
+  saved_recipe_ids = []
+
+  results.each do |result|
+    saved_recipe_ids.push result['recipe_id']
+  end
+
+  p saved_recipe_ids
+
+  saved_recipe_json = run_sql("SELECT * FROM recipes LEFT JOIN (SELECT recipe_id, COUNT(*) AS likes FROM likes GROUP BY recipe_id) AS likes_count ON recipes.id = likes_count.recipe_id WHERE id = ($1)", [saved_recipe_ids[0]])
+
+  saved_recipe = {}
+
+  saved_recipe_json[0].each_pair do |key, val|
+    if key == 'ingredients' || key == 'ingredients_amt'
+      saved_recipe[key] = JSON.parse(val)
+    else
+      saved_recipe[key] = val
+    end
+  end
+
+  p saved_recipe
+  [saved_recipe]
+end
