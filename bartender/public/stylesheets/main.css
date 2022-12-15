@@ -29,8 +29,12 @@ main {
   gap: 50px;
 }
 
-.title {
-  font-size: 2rem;
+.title h1 {
+  font-size: 3rem;
+  /* font-family: 'Manrope', sans-serif; */
+  font-family: 'Prompt', sans-serif;
+  /* font-family: 'Quicksand', sans-serif; */
+  font-weight: 300;
 }
 
 nav {
@@ -226,9 +230,8 @@ main.login, main.signup, main.create-recipe, main.edit-recipe {
 .recipe-name {
   font-weight: bold;
   font-size: 1.25rem;
-  border: 1px solid black;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.802);
+  background-color: rgba(0, 0, 0, 0.5);
   width: fit-content;
   padding: 10px 20px;
   margin-top: 10px;
@@ -270,4 +273,8 @@ main.login, main.signup, main.create-recipe, main.edit-recipe {
 .add-to-sl {
   background-image: url('/icons/bag-icon.png');
   background-color: greenyellow;
+}
+
+.top-recipes h1 {
+  box-shadow: black 5px 5px 10px;
 }
