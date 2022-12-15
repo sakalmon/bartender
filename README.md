@@ -35,10 +35,15 @@ The app is required to be hosted on the internet.
 * Scope/feature creep
 * Implementing overly ambitious features
 * Committing private API keys to Github (don't do it!)
-## Approach taken
+## Approach Taken
 * Wireframe the desired app layout
 * Write HTML structure using above wireframes
 * Style the app just enough so that backend code can be developed and tested
+* Implement backend features
+* Finalise styling
+* Deploy app
+* Setup remote database
+* Test app
 ## :rocket: Tecnologies Used
 * TheCocktailDB API (HTTParty)
 * Password hashing (Bcrypt)
