@@ -199,6 +199,7 @@ label {
 .welcome-message {
   color: white;
   text-shadow: black 3px 3px 3px;
+  margin-left: 50px;
 }
 
 .login, .signup, .create-recipe, .edit-recipe {
@@ -297,5 +298,14 @@ main.login, main.signup, main.create-recipe, main.edit-recipe {
 
 .shopping-list .items {
   display: grid;
+  gap: 20px;
   grid-template-columns: 2fr 1fr;
+}
+
+.clear-sl-btn {
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  background-color: red;
 }

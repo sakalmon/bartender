@@ -22,3 +22,9 @@ def get_shopping_list(user_id)
   end
   shopping_lists
 end
+
+def clear_shopping_list()
+  user_id = session['user_id']
+
+  run_sql("DELETE FROM shopping_lists WHERE user_id = $1", [user_id])
+end

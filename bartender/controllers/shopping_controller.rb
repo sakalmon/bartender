@@ -24,3 +24,9 @@ post '/shopping/:id' do
 
   redirect '/shopping'
 end
+
+delete '/shopping' do
+  clear_shopping_list()
+
+  redirect '/shopping'
+end
