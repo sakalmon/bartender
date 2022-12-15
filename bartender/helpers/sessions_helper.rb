@@ -13,3 +13,14 @@ def current_user
     nil
   end
 end
+
+def author?(recipe_id)
+  user_id = session['user_id']
+
+  puts "current user id: #{current_user['id']}, author id: #{recipe_id}"
+  if current_user['id'] == recipe_id
+    true
+  else
+    false
+  end
+end

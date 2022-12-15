@@ -30,13 +30,15 @@
               </div>
             <% end %>
             <% if logged_in? %>
-              <div class="recipe-controls">
-                <a href="/recipes/<%= recipe['id'] %>/edit" class="edit-btn">Edit</a>
-                <form action="/recipes/<%= recipe['id'] %>" method="POST">
-                  <input type="hidden" name="_method" value="delete">
-                  <button class="delete-btn">Delete</button>
-                </form>
-              </div>
+              <% if author?(recipe['author_id']) %>
+                <div class="recipe-controls">
+                  <a href="/recipes/<%= recipe['id'] %>/edit" class="edit-btn">Edit</a>
+                  <form action="/recipes/<%= recipe['id'] %>" method="POST">
+                    <input type="hidden" name="_method" value="delete">
+                    <button class="delete-btn">Delete</button>
+                  </form>
+                </div>
+              <% end %>
             <% end %>
           </div>
           <div class="recipe-details">
