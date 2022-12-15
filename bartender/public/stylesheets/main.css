@@ -87,11 +87,13 @@ nav li {
 .recipe {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  background-color: lightslategrey;
+  background-color: rgba(13, 13, 13, 0.5);
   margin: 20px auto;
   border-radius: 20px;
   max-width: 700px;
   box-shadow: black 10px 10px 10px;
+  color: white;
+  border: 2px solid rgba(0, 0, 0, 0.5);
 }
 
 .top-recipes, .search-results {
@@ -104,11 +106,17 @@ nav li {
   border-radius: 10px;
   margin-left: 20px;
   margin-top: 20px;
+  border-style: groove;
 }
 
 .ingredients {
   display: flex;
   gap: 30px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-right: 40px;
+  padding-left: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .author-details {
@@ -120,7 +128,11 @@ nav li {
 }
 
 .instructions {
+  border-radius: 5px;
   margin-top: 20px;
+  margin-right: 40px;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 label {
@@ -211,4 +223,18 @@ main.login, main.signup, main.create-recipe, main.edit-recipe {
 .recipe-name {
   font-weight: bold;
   font-size: 1.25rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.802);
+  width: fit-content;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+.recipe-name p {
+  margin: 0;
+}
+
+.instructions {
+  padding-right: 40px;
 }
