@@ -2,6 +2,10 @@ def all_recipes
   run_sql("SELECT * FROM recipes ORDER BY id")
 end
 
+def all_recipes_with_likes
+  run_sql("SELECT * FROM recipes LEFT JOIN (SELECT recipe_id, COUNT(*) AS likes FROM likes GROUP BY recipe_id) AS likes_count ON recipes.id = likes_count.recipe_id")
+end
+
 def generate_data
   data = HTTParty.get("http://www.thecocktaildb.com/api/json/v1/#{ENV['API_KEY']}/search.php?s=margarita").parsed_response
 
@@ -123,4 +127,8 @@ end
 
 def like_recipe(user_id, recipe_id)
   run_sql("INSERT INTO likes(user_id, recipe_id) VALUES ($1, $2)", [user_id, recipe_id])
+end
+
+def get_likes(recipe_id)
+  run_sql("SELECT COUNT(*) FROM likes WHERE recipe_id = $1", [recipe_id])
 end

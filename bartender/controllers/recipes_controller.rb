@@ -1,5 +1,5 @@
 get '/' do
-  recipes = all_recipes()
+  recipes = all_recipes_with_likes()
   parsed_recipes = []
 
   recipes.each do |recipe|
@@ -202,7 +202,7 @@ post '/recipes/:id/like' do
   if !logged_in?
     redirect '/sessions/new'
   end
-  
+
   recipe_id = params['id']
   user_id = session['user_id']
 
