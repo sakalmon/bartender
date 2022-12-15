@@ -126,7 +126,11 @@ def search_recipe(query)
 end
 
 def like_recipe(user_id, recipe_id)
-  run_sql("INSERT INTO likes(user_id, recipe_id) VALUES ($1, $2)", [user_id, recipe_id])
+  result = run_sql("SELECT * FROM likes WHERE user_id = $1 AND recipe_id = $2", [user_id, recipe_id])
+
+  if result.count == 0
+    run_sql("INSERT INTO likes(user_id, recipe_id) VALUES ($1, $2)", [user_id, recipe_id])
+  end
 end
 
 def get_likes(recipe_id)

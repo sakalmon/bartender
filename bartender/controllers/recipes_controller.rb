@@ -70,10 +70,12 @@ post '/recipes' do
 
   amts_json = JSON.generate(amts)
 
+  author_id = session['user_id']
+
   run_sql("INSERT INTO recipes(name, instructions,
     ingredients,
     ingredients_amt,
-    image_url) VALUES ($1, $2, $3, $4, $5)", [name, instructions, ingredients_json, amts_json, image_url])
+    image_url, author_id) VALUES ($1, $2, $3, $4, $5, $6)", [name, instructions, ingredients_json, amts_json, image_url, author_id])
 
   redirect '/'
 end

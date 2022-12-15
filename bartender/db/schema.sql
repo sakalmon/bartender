@@ -41,3 +41,6 @@ INSERT INTO recipes(
 ALTER TABLE likes
 ADD CONSTRAINT unique_likes
 UNIQUE(user_id, recipe_id);
+
+ALTER TABLE recipes
+ADD COLUMN author_id INTEGER;
