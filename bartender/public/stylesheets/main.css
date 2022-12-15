@@ -149,8 +149,9 @@ label {
   display: block;
 }
 
-.logout-btn:hover {
+button:hover {
   cursor: pointer;
+  opacity: 0.5;
 }
 
 .logout-btn {
@@ -186,10 +187,6 @@ label {
 
 .author-details span, .like-count span {
   font-weight: bold;
-}
-
-.delete-btn:hover {
-  cursor: pointer;
 }
 
 .recipe-details {
@@ -263,12 +260,12 @@ main.login, main.signup, main.create-recipe, main.edit-recipe {
 
 .like {
   background-image: url('/icons/like-icon.png');
-  background-color: blue;
+  background-color: rgb(0 172 255);
 }
 
 .save {
   background-image: url('/icons/save-icon.png');
-  background-color: red;
+  background-color: rgb(255 71 0);
 }
 
 .add-to-sl {
@@ -292,8 +289,9 @@ main.login, main.signup, main.create-recipe, main.edit-recipe {
   height: fit-content;
   background-color: rgba(255, 255, 255, 0.8);
   color: black;
-  border-radius: 20px;
   padding: 20px 30px;
+  background-image: url('https://images.unsplash.com/photo-1586075010923-2dd4570fb338');
+  background-size: cover;
 }
 
 .shopping-list .items {
@@ -308,4 +306,13 @@ main.login, main.signup, main.create-recipe, main.edit-recipe {
   font-size: 1rem;
   border-radius: 5px;
   background-color: red;
+}
+
+.shopping-list .items p {
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 2rem;
+}
+
+.shopping-list .items {
+  box-shadow: black 10px 10px 10px;
 }
