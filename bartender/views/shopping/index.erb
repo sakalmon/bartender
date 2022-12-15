@@ -1,18 +1,20 @@
 <main>
   <div class="shopping-list">
-    <div class="title"><h1>Shopping List</h1>
-      <div class="items">
-
-        <% shopping_lists.each do |list| %>
+    <div class="title"><h1>Shopping List</h1></div>
+    <div class="items">
+      <% shopping_lists.each do |list| %>
+        <div class="sl-ingredients">
           <% list.keys.each do |ingredient| %>
             <p><%= ingredient %></p>
           <% end %>
-
+        </div>
+    
+        <div class="sl-amounts">
           <% list.values.each do |amount| %>
             <p><%= amount %></p>
-          <% end %>
-        <% end %>
-      </div>
-    </div>  
+          <% end %>            
+        </div>
+      <% end %>        
+    </div>
   </div>
 </main>

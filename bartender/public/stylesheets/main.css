@@ -292,5 +292,10 @@ main.login, main.signup, main.create-recipe, main.edit-recipe {
   background-color: rgba(255, 255, 255, 0.8);
   color: black;
   border-radius: 20px;
-  padding: 50px;
+  padding: 20px 30px;
+}
+
+.shopping-list .items {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
