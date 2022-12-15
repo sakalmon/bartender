@@ -155,15 +155,13 @@ def all_saved_recipes(user_id)
     saved_recipe_ids.push result['recipe_id']
   end
 
-  p saved_recipe_ids
-
   saved_recipes = []
 
   saved_recipe_ids.each do |saved_recipe_id|
     saved_recipe_json = run_sql("SELECT * FROM recipes LEFT JOIN (SELECT recipe_id, COUNT(*) AS likes FROM likes GROUP BY recipe_id) AS likes_count ON recipes.id = likes_count.recipe_id WHERE id = ($1)", [saved_recipe_id])
   
     saved_recipe = {}
-    p saved_recipe_json[0]
+    
     if saved_recipe_json[0]
       saved_recipe_json[0].each_pair do |key, val|
         if key == 'ingredients' || key == 'ingredients_amt'
