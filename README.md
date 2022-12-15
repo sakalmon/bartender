@@ -58,6 +58,7 @@ The app is required to be hosted on the internet.
 * MVC structure
 ## :beetle: Bugs
 * Error in console on pages where the search bar is missing (create recipe, shopping list, etc.). This is due to JS trying to add an event listener to the search bar but on some pages, the search bar is not present.
+* Save and add to shopping list features not yet working for searched results.
 ## :star: Future features
 * Show the correct author and date of the recipe (using placeholders for now)
 * Redirect the user to the saved recipes page when they save a recipe
@@ -65,3 +66,4 @@ The app is required to be hosted on the internet.
 * Un-save a recipe
 * Account page for updating user details (email, password, etc.)
 * Share a recipe
+* Like a searched recipe
