@@ -44,6 +44,8 @@ The app is required to be hosted on the internet.
 * Deploy app
 * Setup remote database
 * Test app
+## Entity Relationship Diagram
+![ERD](https://github.com/sakalmon/bartender/blob/main/entity-relationship-diagram.png?raw=true)
 ## :rocket: Tecnologies Used
 * TheCocktailDB API (HTTParty)
 * Password hashing (Bcrypt)
