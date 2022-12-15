@@ -18,15 +18,6 @@
             <div class="author-details">
               <p class="author"><span>Retrieved from: </span>TheCocktailDB API</p>
             </div>
-            <% if logged_in? %>
-              <div class="recipe-controls">
-                <a href="/recipes/<%= recipe['id'] %>/edit" class="edit-btn">Edit</a>
-                <form action="/recipes/<%= recipe['id'] %>" method="POST">
-                  <input type="hidden" name="_method" value="delete">
-                  <button class="delete-btn">Delete</button>
-                </form>
-              </div>
-            <% end %>
           </div>
           <div class="recipe-details">
             <div class="recipe-heading">
@@ -56,9 +47,12 @@
             </div>
           </div>
           <section class="recipe-controls">
-            <p>Like</p>
-            <p>Save</p>
-            <p>Add to shopping list</p>
+            <form action="/recipes/<%= recipe['id'] %>/save" method="POST">
+              <button class="save"></button>
+            </form>
+            <form action="/recipes/<%= recipe['id'] %>/add-to-sl" method="POST">
+              <button class="add-to-sl"></button>
+            </form>
           </section>
         </section>
       <% end %>
